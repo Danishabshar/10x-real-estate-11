@@ -2,12 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userModel = require('./schema');
 const postModal=require('./postSchema');
-// const page=require("./page2Schema");
+
 const {checkExistingUser, generatePasswordHash} = require("./utility");
 const jwt = require('jsonwebtoken');
 const multer = require("multer")();
 const bcrypt = require("bcryptjs");
-const salt=10;
+
 const cors = require('cors')
 const app =express();
 require('dotenv').config();
@@ -18,15 +18,18 @@ app.use(cors());
 app.use(express.urlencoded({extended: false}));
 
 
-app.listen(3003,()=>{
-    console.log('server running at 3003 port');
-})
-// app.use("/post",dataController)
-
 mongoose.connect('mongodb+srv://Danish1122:Danish1122@cluster0.lqljtl6.mongodb.net/?retryWrites=true&w=majority',()=>{
     console.log('connected to DB')
 }),
     (err)=>console.log(err)
+
+
+    app.listen(process.env.PORT || 3003,(err)=>{
+        if(!err){
+            console.log('server started at 3003')
+        }
+      })
+    
 
     app.post("/", (req, res)=> {
         userModel.find({email: req.body.email}).then((userData)=> {
@@ -108,8 +111,7 @@ mongoose.connect('mongodb+srv://Danish1122:Danish1122@cluster0.lqljtl6.mongodb.n
     })                        
     })
     
-
-
+//
     app.get("/posts",(req,res)=>{
         postModal.find().then((data)=>{
             res.status(200).send(data)
