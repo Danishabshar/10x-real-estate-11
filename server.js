@@ -63,16 +63,7 @@ mongoose.connect('mongodb+srv://Danish1122:Danish1122@cluster0.lqljtl6.mongodb.n
         
     });
     
-    // app.post("/add", (req, res) => {
-
-    //     upload.create({ PropertyType: req.body.PropertyType,Negotiable:req.body.Negotiable,Price:req.body.Price,Ownership:req.body.Ownership,PropertyAge:req.body.PropertyAge,PropertyApproved:req.body.PropertyApproved,PropertyDiscription:req.body.PropertyDiscription,BankLoan:req.body.BankLoan}).then((userData) => {
-    //     res.status(200).send("posted sucessfully")
     
-    //   }).catch((err) => {
-    //     res.status(400).send(err.message)
-    //   })
-    
-    // });
     app.post("/adding",(req,res)=>{
         console.log(req.body)
         postModal.create({  PropertyType:req.body.PropertyType,
@@ -116,27 +107,7 @@ mongoose.connect('mongodb+srv://Danish1122:Danish1122@cluster0.lqljtl6.mongodb.n
     console.log(err)
     })                        
     })
-    // app.post("/adding2",(req,res)=>{
-    //         console.log(req.body)
-    //         postModal.insertMany({  length1:req.body.length1,
-    //             Breath:req.body.Breath,
-    //             Area:req.body.Area,
-    //             AreaUnit:req.body.AreaUnit,
-    //             bhk:req.body.bhk,
-    //             floor:req.body.floor,
-    //             Furnished:req.body.Furnished,
-    //             car:req.body.car,
-    //             Lift:req.body.Lift,
-    //             Electricity:req.body.Electricity,
-    //             Facing:req.body.Facing,
-    //      })
-    //      .then((data)=>{
-    //         res.status(200).send(data)
-    //        }).catch((err)=>{
-    //        console.log(err)
-    //     })                        
-    // })
-    //     //    })
+    
 
 
     app.get("/posts",(req,res)=>{
@@ -147,4 +118,4 @@ mongoose.connect('mongodb+srv://Danish1122:Danish1122@cluster0.lqljtl6.mongodb.n
             res.status(400).send(err)
         })
     })
-    // // app.use("/user",userController);
+    
