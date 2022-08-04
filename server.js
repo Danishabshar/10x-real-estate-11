@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.urlencoded({extended: false}));
 
 
-mongoose.connect('mongodb+srv://Danish1122:Danish1122@cluster0.lqljtl6.mongodb.net/DANISHESTATE?retryWrites=true&w=majority',()=>{
+mongoose.connect('mongodb+srv://Danish1122:Danish1122@cluster0.lqljtl6.mongodb.net/?retryWrites=true&w=majority',()=>{
     console.log('connected to DB')
 }),
     (err)=>console.log(err)
